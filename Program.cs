@@ -33,13 +33,12 @@ namespace Arrays
 
             /*Create an array that will store the score of student in the class*/
 
-            Console.WriteLine("Enter the number of grades for the student");
+            /*Console.WriteLine("Enter the number of grades for the student");
             int studentNumber = Convert.ToInt32(Console.ReadLine());
 
             int[] students = new int[studentNumber];
             int number = 0;
 
-            Console.WriteLine("Enter Students grade");
             for(int i = 0; i < students.Length; i++)
             {
                 students[i] = Convert.ToInt32(Console.ReadLine());
@@ -51,6 +50,23 @@ namespace Arrays
                 
                
                 Console.WriteLine(number + ": " + students[i]);
+            }*/
+
+            string[] Toyota = { "Corolla", "Camry", "Venza" };
+            string[] Honda = { "Civic", "Pilot", "Accord" };
+            string[] Benz = { "Civic", "Pilot", "Accord" };
+
+            string[,] cars =
+            {
+                { "Corolla", "Camry", "Venza" },
+                { "Civic", "Pilot", "Accord" },
+                { "Civic", "Pilot", "Accord" }
+            };
+
+
+            foreach(string cr in cars)
+            {
+                Console.WriteLine(cr);
             }
 
             Console.ReadKey();
