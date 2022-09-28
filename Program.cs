@@ -52,22 +52,34 @@ namespace Arrays
                 Console.WriteLine(number + ": " + students[i]);
             }*/
 
-            string[] Toyota = { "Corolla", "Camry", "Venza" };
-            string[] Honda = { "Civic", "Pilot", "Accord" };
-            string[] Benz = { "Civic", "Pilot", "Accord" };
+
 
             string[,] cars =
             {
                 { "Corolla", "Camry", "Venza" },
                 { "Civic", "Pilot", "Accord" },
-                { "Civic", "Pilot", "Accord" }
+                { "Mayberk", "G-wagon", "GLK" }
             };
 
 
-            foreach(string cr in cars)
+            /*foreach (string cr in cars)
             {
                 Console.WriteLine(cr);
+            }*/
+
+
+            for (int i = 0; i < cars.GetLength(0); i++)
+            {
+                for (int j = 0; j < cars.GetLength(1); j++)
+                {
+                    Console.Write(cars[i, j]+" ");
+                }
+                Console.WriteLine();
             }
+
+
+
+
 
             Console.ReadKey();
         }
