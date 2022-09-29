@@ -102,9 +102,6 @@ namespace Arrays
                 Console.WriteLine();
             }
 
-            Console.WriteLine("\n \nHow many items do you want to buy?");
-            int itemsNumber = Convert.ToInt32(Console.ReadLine());
-
 
             Console.WriteLine("\n \n>>> Please Input the id of the item you want to buy and press enter.");
             int id = Convert.ToInt32(Console.ReadLine());
@@ -114,16 +111,17 @@ namespace Arrays
 
             Console.Write("\n \n>>> Enter the quantity you want to buy: ");
             int quantity = Convert.ToInt32(Console.ReadLine());
-            int row = itemsNumber;
-            
-            int column = 5;
+            int row = 6;
 
-            Console.WriteLine("\n>>> Your Items Bought\n");
+            int column = 5;
+            int totalPrice = 0;
+            string subtotal;
+            char trimming;
 
             string[,] itemsBought = new string[row, column];
 
             
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < column; j++)
                 {
@@ -134,34 +132,40 @@ namespace Arrays
                             itemsBought[i, 0] = "|1        ";
                             itemsBought[i, 1] = "|Laptop        ";
                             itemsBought[i, 2] = "|200.00        ";
-                            itemsBought[i, 3] = "|" + Convert.ToString(quantity) + "        ";
-                            itemsBought[i, 4] = "|" + Convert.ToString(200 * quantity) + "       ";
+                            itemsBought[i, 3] = "|" + Convert.ToString(quantity) + "        |";
+                            itemsBought[i, 4] = Convert.ToString(200 * quantity) + "       ";
+                            
                             break;
                         case 2:
-                            itemsBought[i, 0] = "|2         ";
+                            itemsBought[i, 0] = "|2        ";
                             itemsBought[i, 1] = "|Toothbrush    ";
                             itemsBought[i, 2] = "|50.00         ";
-                            itemsBought[i, 3] = "|" + Convert.ToString(quantity) + "        ";
-                            itemsBought[i, 4] = "|" + Convert.ToString(50 * quantity) + "        ";
+                            itemsBought[i, 3] = "|" + Convert.ToString(quantity) + "        |";
+                            itemsBought[i, 4] = Convert.ToString(50 * quantity) + "        ";
+                            
                             break;
                         case 3:
-                            itemsBought[i, 0] = "|3          ";
-                            itemsBought[i, 1] = "|T-shirt       ";
-                            itemsBought[i, 2] = "|600.00        ";
-                            itemsBought[i, 3] = "|" +Convert.ToString(quantity) + "         ";
-                            itemsBought[i, 4] = "|" +Convert.ToString(600 * quantity) + "         ";
+                            itemsBought[i, 0] = "|3        ";
+                            itemsBought[i, 1] = "|T-shirt      ";
+                            itemsBought[i, 2] = "|600.00       ";
+                            itemsBought[i, 3] = "|" +Convert.ToString(quantity) + "         |";
+                            itemsBought[i, 4] = Convert.ToString(600 * quantity) + "        ";
+                            
                             break;
                     }
                    /* Console.Write(itemsBought[i, j]);*/
                 }
+                    
+                subtotal = itemsBought[i, 4].Trim();
+                totalPrice += Convert.ToInt32(subtotal);
                 Console.WriteLine("\n \n \n>>>Do you want to buy another item? If yes write y, if no write n");
 
                 string option = Console.ReadLine();
 
                 if(option.ToLower() == "y")
                 {
-
-                    Console.WriteLine("\n \n>>> Our Shopping Mall Items\n");
+                    Console.WriteLine("\n\n\n\n========================================================");
+                    Console.WriteLine("\n\n>>> Our Shopping Mall Items\n");
                     string[,] item = {
                         {"---------", "---------------", "----------------" },
                         {"   Id.   ", "|     Item     ", "|   Price($)   |" },
@@ -185,7 +189,7 @@ namespace Arrays
 
                     id = validId(id);
 
-                    Console.Write("\n \n>>> Enter the quantity you want to buy: ");
+                    Console.Write("\n>>> Enter the quantity you want to buy: ");
                     quantity = Convert.ToInt32(Console.ReadLine());
 
                     continue;
@@ -198,8 +202,8 @@ namespace Arrays
             
             }
 
-
-            Console.WriteLine(">>>>Your Items");
+            Console.WriteLine("\n\n\n================================================================");
+            Console.WriteLine("\n\n>>>>Your Items\n\n");
             Console.WriteLine("----------------------------------------------------------------");
             Console.WriteLine("|   Id    |    Item     |   Price($)   |  Quantity |  SubTotal |");
             Console.WriteLine("----------------------------------------------------------------");
@@ -211,6 +215,8 @@ namespace Arrays
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine(">>>> Total of all items is " + totalPrice);
+            Console.WriteLine("==================================================================");
 
 
 
