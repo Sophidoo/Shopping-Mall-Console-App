@@ -103,7 +103,7 @@ namespace Arrays
             }
 
 
-            Console.WriteLine("\n \n>>> Please Input the id of the item you want to buy and press enter.");
+            Console.WriteLine("\n \n>>> Please Input the id of the item you want to buy and press enter. Note that you can't buy more than 6 items.");
             int id = Convert.ToInt32(Console.ReadLine());
 
             id = validId(id);
@@ -116,7 +116,6 @@ namespace Arrays
             int column = 5;
             int totalPrice = 0;
             string subtotal;
-            char trimming;
 
             string[,] itemsBought = new string[row, column];
 
@@ -148,7 +147,7 @@ namespace Arrays
                             itemsBought[i, 0] = "|3        ";
                             itemsBought[i, 1] = "|T-shirt      ";
                             itemsBought[i, 2] = "|600.00       ";
-                            itemsBought[i, 3] = "|" +Convert.ToString(quantity) + "         |";
+                            itemsBought[i, 3] = "|" + Convert.ToString(quantity) + "        |";
                             itemsBought[i, 4] = Convert.ToString(600 * quantity) + "        ";
                             
                             break;
@@ -203,7 +202,7 @@ namespace Arrays
             }
 
             Console.WriteLine("\n\n\n================================================================");
-            Console.WriteLine("\n\n>>>>Your Items\n\n");
+            Console.WriteLine("\n\n>>>>Your Items Bought\n\n");
             Console.WriteLine("----------------------------------------------------------------");
             Console.WriteLine("|   Id    |    Item     |   Price($)   |  Quantity |  SubTotal |");
             Console.WriteLine("----------------------------------------------------------------");
@@ -228,37 +227,6 @@ namespace Arrays
 
 
             Console.ReadKey();
-        }
-
-        static void getValues(int item_id,int itemno)
-        {
-            Console.WriteLine("\n \n>>> Our Shopping Mall Items\n");
-            string[,] items = {
-                {"---------", "---------------", "----------------" },
-                {"   Id.   ", "|     Item     ", "|   Price($)   |" },
-                {"---------", "---------------", "----------------" },
-                {"1        ", "|Laptop        ", "|200.00        |" },
-                {"2        ", "|Toothbrush    ", "|50.00         |" },
-                {"3        ", "|T-shirt       ", "|600.00        |" }
-            };
-
-            for (int i = 0; i < items.GetLength(0); i++)
-            {
-                for (int j = 0; j < items.GetLength(1); j++)
-                {
-                    Console.Write(items[i, j]);
-                }
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("\n \nHow many items do you want to buy?");
-            itemno = Convert.ToInt32(Console.ReadLine());
-
-
-            Console.WriteLine("\n \n>>> Please Input the id of the item you want to buy and press enter.");
-            item_id = Convert.ToInt32(Console.ReadLine());
-
-            item_id = validId(item_id);
         }
 
         static int validId(int id)
